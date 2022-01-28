@@ -18,7 +18,7 @@ module.exports = grammar({
         $.declaration,
         $.css_ruleset,
         $.import_statement,
-        $.media_statement,
+        $.css_media,
         $.charset_statement,
         $.namespace_statement,
         $.keyframes_statement,
@@ -43,7 +43,7 @@ module.exports = grammar({
 
     import_statement: $ => seq('@import', $.value_, sep(',', $._query), ';'),
 
-    media_statement: $ => seq('@media', sep1(',', $._query), $.enclosed_body),
+    css_media: $ => seq('@media', sep1(',', $._query), $.enclosed_body),
 
     charset_statement: $ => seq('@charset', $.value_, ';'),
 
@@ -207,7 +207,7 @@ module.exports = grammar({
           $.declaration,
           $.css_ruleset,
           $.import_statement,
-          $.media_statement,
+          $.css_media,
           $.charset_statement,
           $.namespace_statement,
           $.keyframes_statement,

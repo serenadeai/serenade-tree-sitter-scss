@@ -41,7 +41,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "media_statement"
+          "name": "css_media"
         },
         {
           "type": "SYMBOL",
@@ -167,7 +167,7 @@
         }
       ]
     },
-    "media_statement": {
+    "css_media": {
       "type": "SEQ",
       "members": [
         {
@@ -1230,7 +1230,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "media_statement"
+            "name": "css_media"
           },
           {
             "type": "SYMBOL",

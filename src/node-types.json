@@ -430,6 +430,10 @@
             "named": true
           },
           {
+            "type": "css_media",
+            "named": true
+          },
+          {
             "type": "css_mixin",
             "named": true
           },
@@ -475,10 +479,6 @@
           },
           {
             "type": "keyframes_statement",
-            "named": true
-          },
-          {
-            "type": "media_statement",
             "named": true
           },
           {
@@ -760,6 +760,45 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "css_media",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_query",
+          "named": true
+        },
+        {
+          "type": "enclosed_body",
+          "named": true
+        },
+        {
+          "type": "feature_query",
+          "named": true
+        },
+        {
+          "type": "keyword_query",
+          "named": true
+        },
+        {
+          "type": "parenthesized_query",
+          "named": true
+        },
+        {
+          "type": "selector_query",
+          "named": true
+        },
+        {
+          "type": "unary_query",
           "named": true
         }
       ]
@@ -1587,45 +1626,6 @@
     }
   },
   {
-    "type": "media_statement",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "binary_query",
-          "named": true
-        },
-        {
-          "type": "enclosed_body",
-          "named": true
-        },
-        {
-          "type": "feature_query",
-          "named": true
-        },
-        {
-          "type": "keyword_query",
-          "named": true
-        },
-        {
-          "type": "parenthesized_query",
-          "named": true
-        },
-        {
-          "type": "selector_query",
-          "named": true
-        },
-        {
-          "type": "unary_query",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "namespace_statement",
     "named": true,
     "fields": {},
@@ -2073,6 +2073,10 @@
           "named": true
         },
         {
+          "type": "css_media",
+          "named": true
+        },
+        {
           "type": "css_mixin",
           "named": true
         },
@@ -2118,10 +2122,6 @@
         },
         {
           "type": "keyframes_statement",
-          "named": true
-        },
-        {
-          "type": "media_statement",
           "named": true
         },
         {

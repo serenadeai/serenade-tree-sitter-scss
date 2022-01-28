@@ -107,7 +107,7 @@ enum {
   sym_program = 80,
   sym_statement = 81,
   sym_import_statement = 82,
-  sym_media_statement = 83,
+  sym_css_media = 83,
   sym_charset_statement = 84,
   sym_namespace_statement = 85,
   sym_keyframes_statement = 86,
@@ -208,7 +208,7 @@ enum {
   alias_sym_variable_value = 181,
 };
 
-static const char * const ts_symbol_names[] = {
+static const char *ts_symbol_names[] = {
   [ts_builtin_sym_end] = "end",
   [anon_sym_ATimport] = "@import",
   [anon_sym_COMMA] = ",",
@@ -292,7 +292,7 @@ static const char * const ts_symbol_names[] = {
   [sym_program] = "program",
   [sym_statement] = "statement",
   [sym_import_statement] = "import_statement",
-  [sym_media_statement] = "media_statement",
+  [sym_css_media] = "css_media",
   [sym_charset_statement] = "charset_statement",
   [sym_namespace_statement] = "namespace_statement",
   [sym_keyframes_statement] = "keyframes_statement",
@@ -393,7 +393,7 @@ static const char * const ts_symbol_names[] = {
   [alias_sym_variable_value] = "variable_value",
 };
 
-static const TSSymbol ts_symbol_map[] = {
+static TSSymbol ts_symbol_map[] = {
   [ts_builtin_sym_end] = ts_builtin_sym_end,
   [anon_sym_ATimport] = anon_sym_ATimport,
   [anon_sym_COMMA] = anon_sym_COMMA,
@@ -477,7 +477,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_program] = sym_program,
   [sym_statement] = sym_statement,
   [sym_import_statement] = sym_import_statement,
-  [sym_media_statement] = sym_media_statement,
+  [sym_css_media] = sym_css_media,
   [sym_charset_statement] = sym_charset_statement,
   [sym_namespace_statement] = sym_namespace_statement,
   [sym_keyframes_statement] = sym_keyframes_statement,
@@ -911,7 +911,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_media_statement] = {
+  [sym_css_media] = {
     .visible = true,
     .named = true,
   },
@@ -1325,7 +1325,7 @@ enum {
   field_statement_list = 13,
 };
 
-static const char * const ts_field_names[] = {
+static const char *ts_field_names[] = {
   [0] = NULL,
   [field_argument_list] = "argument_list",
   [field_argument_list_optional] = "argument_list_optional",
@@ -1430,7 +1430,7 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_parameter_list, 2},
 };
 
-static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
+static TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
   [0] = {0},
   [1] = {
     [0] = alias_sym_tag_name,
@@ -1523,7 +1523,7 @@ static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE
   },
 };
 
-static const uint16_t ts_non_terminal_alias_map[] = {
+static uint16_t ts_non_terminal_alias_map[] = {
   sym_value_, 6,
     sym_value_,
     alias_sym_argument_value,
@@ -5108,7 +5108,7 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   }
 }
 
-static const TSLexMode ts_lex_modes[STATE_COUNT] = {
+static TSLexMode ts_lex_modes[STATE_COUNT] = {
   [0] = {.lex_state = 0, .external_lex_state = 1},
   [1] = {.lex_state = 103},
   [2] = {.lex_state = 18},
@@ -5599,17 +5599,17 @@ enum {
   ts_external_token__descendant_operator = 0,
 };
 
-static const TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
+static TSSymbol ts_external_scanner_symbol_map[EXTERNAL_TOKEN_COUNT] = {
   [ts_external_token__descendant_operator] = sym__descendant_operator,
 };
 
-static const bool ts_external_scanner_states[2][EXTERNAL_TOKEN_COUNT] = {
+static bool ts_external_scanner_states[2][EXTERNAL_TOKEN_COUNT] = {
   [1] = {
     [ts_external_token__descendant_operator] = true,
   },
 };
 
-static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
+static uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [0] = {
     [ts_builtin_sym_end] = ACTIONS(1),
     [anon_sym_ATimport] = ACTIONS(1),
@@ -5692,7 +5692,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
     [sym_program] = STATE(461),
     [sym_statement] = STATE(13),
     [sym_import_statement] = STATE(43),
-    [sym_media_statement] = STATE(43),
+    [sym_css_media] = STATE(43),
     [sym_charset_statement] = STATE(43),
     [sym_namespace_statement] = STATE(43),
     [sym_keyframes_statement] = STATE(43),
@@ -5765,7 +5765,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [2] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -5840,7 +5840,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [3] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -5915,7 +5915,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [4] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -5990,7 +5990,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [5] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6065,7 +6065,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [6] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6140,7 +6140,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [7] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6215,7 +6215,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [8] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6290,7 +6290,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [9] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6365,7 +6365,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [10] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6440,7 +6440,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [11] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6515,7 +6515,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
   [12] = {
     [sym_import_statement] = STATE(65),
-    [sym_media_statement] = STATE(65),
+    [sym_css_media] = STATE(65),
     [sym_charset_statement] = STATE(65),
     [sym_namespace_statement] = STATE(65),
     [sym_keyframes_statement] = STATE(65),
@@ -6590,7 +6590,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [13] = {
     [sym_statement] = STATE(14),
     [sym_import_statement] = STATE(43),
-    [sym_media_statement] = STATE(43),
+    [sym_css_media] = STATE(43),
     [sym_charset_statement] = STATE(43),
     [sym_namespace_statement] = STATE(43),
     [sym_keyframes_statement] = STATE(43),
@@ -6664,7 +6664,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   [14] = {
     [sym_statement] = STATE(14),
     [sym_import_statement] = STATE(43),
-    [sym_media_statement] = STATE(43),
+    [sym_css_media] = STATE(43),
     [sym_charset_statement] = STATE(43),
     [sym_namespace_statement] = STATE(43),
     [sym_keyframes_statement] = STATE(43),
@@ -6737,7 +6737,7 @@ static const uint16_t ts_parse_table[LARGE_STATE_COUNT][SYMBOL_COUNT] = {
   },
 };
 
-static const uint16_t ts_small_parse_table[] = {
+static uint16_t ts_small_parse_table[] = {
   [0] = 6,
     ACTIONS(327), 1,
       anon_sym_ATelse,
@@ -17451,7 +17451,7 @@ static const uint16_t ts_small_parse_table[] = {
       sym_line_comment,
 };
 
-static const uint32_t ts_small_parse_table_map[] = {
+static uint32_t ts_small_parse_table_map[] = {
   [SMALL_STATE(15)] = 0,
   [SMALL_STATE(16)] = 51,
   [SMALL_STATE(17)] = 102,
@@ -17923,7 +17923,7 @@ static const uint32_t ts_small_parse_table_map[] = {
   [SMALL_STATE(483)] = 13006,
 };
 
-static const TSParseActionEntry ts_parse_actions[] = {
+static TSParseActionEntry ts_parse_actions[] = {
   [0] = {.entry = {.count = 0, .reusable = false}},
   [1] = {.entry = {.count = 1, .reusable = false}}, RECOVER(),
   [3] = {.entry = {.count = 1, .reusable = true}}, SHIFT_EXTRA(),
@@ -18099,8 +18099,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [407] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_keyframe_block_list, 2),
   [409] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_namespace_statement, 4, .production_id = 26),
   [411] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_namespace_statement, 4, .production_id = 26),
-  [413] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_media_statement, 4),
-  [415] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_media_statement, 4),
+  [413] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_css_media, 4),
+  [415] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_css_media, 4),
   [417] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_statement, 1),
   [419] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_statement, 1),
   [421] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_at_rule, 4),
@@ -18175,8 +18175,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [559] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_use_statement, 3),
   [561] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_import_statement, 3),
   [563] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_import_statement, 3),
-  [565] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_media_statement, 3),
-  [567] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_media_statement, 3),
+  [565] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_css_media, 3),
+  [567] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_css_media, 3),
   [569] = {.entry = {.count = 1, .reusable = true}}, SHIFT(208),
   [571] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_declaration_pair, 3, .production_id = 19),
   [573] = {.entry = {.count = 1, .reusable = true}}, SHIFT(198),
@@ -18571,7 +18571,7 @@ void tree_sitter_scss_external_scanner_deserialize(void *, const char *, unsigne
 #endif
 
 extern const TSLanguage *tree_sitter_scss(void) {
-  static const TSLanguage language = {
+  static TSLanguage language = {
     .version = LANGUAGE_VERSION,
     .symbol_count = SYMBOL_COUNT,
     .alias_count = ALIAS_COUNT,
@@ -18582,22 +18582,22 @@ extern const TSLanguage *tree_sitter_scss(void) {
     .production_id_count = PRODUCTION_ID_COUNT,
     .field_count = FIELD_COUNT,
     .max_alias_sequence_length = MAX_ALIAS_SEQUENCE_LENGTH,
-    .parse_table = &ts_parse_table[0][0],
-    .small_parse_table = ts_small_parse_table,
-    .small_parse_table_map = ts_small_parse_table_map,
+    .parse_table = (const uint16_t *)ts_parse_table,
+    .small_parse_table = (const uint16_t *)ts_small_parse_table,
+    .small_parse_table_map = (const uint32_t *)ts_small_parse_table_map,
     .parse_actions = ts_parse_actions,
     .symbol_names = ts_symbol_names,
     .field_names = ts_field_names,
-    .field_map_slices = ts_field_map_slices,
-    .field_map_entries = ts_field_map_entries,
+    .field_map_slices = (const TSFieldMapSlice *)ts_field_map_slices,
+    .field_map_entries = (const TSFieldMapEntry *)ts_field_map_entries,
     .symbol_metadata = ts_symbol_metadata,
     .public_symbol_map = ts_symbol_map,
     .alias_map = ts_non_terminal_alias_map,
-    .alias_sequences = &ts_alias_sequences[0][0],
+    .alias_sequences = (const TSSymbol *)ts_alias_sequences,
     .lex_modes = ts_lex_modes,
     .lex_fn = ts_lex,
     .external_scanner = {
-      &ts_external_scanner_states[0][0],
+      (const bool *)ts_external_scanner_states,
       ts_external_scanner_symbol_map,
       tree_sitter_scss_external_scanner_create,
       tree_sitter_scss_external_scanner_destroy,
