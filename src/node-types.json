@@ -63,6 +63,21 @@
     }
   },
   {
+    "type": "apply_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "value_",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "argument",
     "named": true,
     "fields": {},
@@ -2061,6 +2076,10 @@
       "required": true,
       "types": [
         {
+          "type": "apply_statement",
+          "named": true
+        },
+        {
           "type": "at_rule",
           "named": true
         },
@@ -2467,6 +2486,10 @@
   },
   {
     "type": ">=",
+    "named": false
+  },
+  {
+    "type": "@apply",
     "named": false
   },
   {

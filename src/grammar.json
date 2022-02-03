@@ -69,6 +69,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "apply_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "css_mixin"
         },
         {
@@ -453,6 +457,26 @@
         {
           "type": "SYMBOL",
           "name": "value_"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
+    },
+    "apply_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@apply"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "value_"
+          }
         },
         {
           "type": "STRING",
