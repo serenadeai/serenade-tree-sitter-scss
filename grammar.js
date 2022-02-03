@@ -441,7 +441,7 @@ module.exports = grammar({
     argument: $ => $.value_,
 
     identifier: $ =>
-      /((#\{[a-zA-Z0-9-_,&\$\.\(\) ]*\})|[a-zA-Z-_])([a-zA-Z0-9-_]|(#\{[a-zA-Z0-9-_,&\$\.\(\) ]*\}))*/,
+      /((#\{[a-zA-Z0-9-_,&\$\.\(\) ]*\})|(--|-?[a-zA-Z_]))([a-zA-Z0-9-_]|(#\{[a-zA-Z0-9-_,&\$\.\(\) ]*\}))*/,
 
     variable_identifier: $ => /([a-zA-Z_]+\.)?\$[a-zA-Z-_][a-zA-Z0-9-_]*/,
 
